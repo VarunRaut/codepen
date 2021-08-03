@@ -1,0 +1,247 @@
+//Variables
+$charcoal: #3a3734;
+$primary: #5343c0;
+$light_pink: #ffd8db;
+$smoke_grey: #b7b6b5;
+$thin_smoke: #e7e7e7;
+$pink: #ffd8db;
+$green: #a0d297;
+$orange: #ffe2a0;
+$shadowed_gery: #eeeeee;
+$pearl_white: #fff;
+
+//Primary Button Style
+@mixin primaryButton($color, $background) {
+  font-weight: 600;
+  text-decoration: none;
+  color: $color;
+  font-size: 0.8rem;
+  background-color: $background;
+  padding: 1rem 1.8rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $pearl_white;
+  box-sizing: border-box;
+}
+
+main {
+  border-radius: 1rem;
+  width: 980px;
+  margin: 2rem auto;
+  //navigation menu
+  nav {
+    & .nav_wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      & .nav_brand {
+        & img {
+          width: 120px;
+        }
+      }
+
+      & .nav_list_items {
+        display: inline-flex;
+
+        & .active {
+          border-bottom: 3px solid $primary;
+          margin-bottom: 1.8rem;
+          & a {
+            color: $charcoal;
+          }
+        }
+
+        & .nav_item {
+          margin-right: 1.6rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          transition: all 0.25s ease;
+
+          &:hover {
+            border-bottom: 3px solid $primary;
+            margin-bottom: 1.8rem;
+            & a {
+              color: $charcoal;
+            }
+          }
+        }
+
+        & a {
+          text-decoration: none;
+          color: $smoke_grey;
+        }
+      }
+
+      & .nav_button {
+        & a {
+          @include primaryButton($primary, $light_pink);
+        }
+        &:hover a {
+          background-color: #ffc4c8;
+        }
+      }
+    }
+  }
+  section {
+    display: flex;
+    margin-top: 2rem;
+
+    & .left-section {
+      width: 45%;
+      padding: 0 2rem;
+
+      .pink {
+        background-color: $pink !important;
+      }
+
+      .orange {
+        background-color: $orange !important;
+      }
+
+      .green {
+        background-color: $green !important;
+      }
+
+      & .title {
+        font-size: 2.6rem;
+        line-height: 4.6rem;
+        margin: 0;
+
+        & h1 {
+          margin: 1.4rem 0;
+        }
+      }
+
+      & .description {
+        font-size: 0.9rem;
+        line-height: 2rem;
+        color: $charcoal;
+      }
+
+      .card-lists--wrapper {
+        margin: 1rem 0;
+
+        & .card-list {
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.4rem;
+          background-color: #fbfbfb;
+          border-radius: 0.6rem;
+          margin-bottom: 0.6rem;
+          transition: all 0.2s ease;
+          border: 1px solid $shadowed_gery;
+
+          & .card-list--check {
+            font-size: 2rem;
+            color: $thin_smoke;
+
+            & .bi::before {
+              transition: all 0.25s ease;
+            }
+          }
+
+          & .title-spacer {
+            width: 6.8rem;
+          }
+
+          & .card-list--title {
+            color: $charcoal;
+            font-weight: 600;
+            font-size: 0.9rem;
+          }
+
+          & .card--date {
+            color: $smoke_grey;
+          }
+
+          & .card-list--indicator {
+            background-color: red;
+            width: 24px;
+            height: 12px;
+            margin-right: 1rem;
+            border-radius: 3rem;
+          }
+          &:hover {
+            background-color: $pearl_white;
+            box-shadow: 22px 22px 48px #d0d0d0, -22px -22px 48px $pearl_white;
+          }
+          &:hover .bi::before {
+            color: $primary;
+            content: "\f26a";
+          }
+        }
+      }
+
+      & .cta {
+        display: flex;
+        align-items: center;
+        margin-top: 1.8rem;
+
+        & i {
+          cursor: pointer;
+          font-size: 2.2rem;
+          color: $thin_smoke;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+
+        & .cta_btn_3 {
+          margin-left: 1rem;
+        }
+
+        & img {
+          cursor: pointer;
+          width: 46px;
+          margin: 0 0.9rem;
+        }
+
+        & .cta_btn_1 {
+          & a {
+            @include primaryButton($pearl_white, $primary);
+            cursor: pointer;
+            margin-right: 1rem;
+          }
+          &:hover a {
+            background-color: #2f228d;
+          }
+        }
+      }
+    }
+
+    & .right-section {
+      width: 55%;
+
+      & .banner-image {
+        width: 98%;
+        & img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 3rem;
+  p {
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: #000;
+    color: $pearl_white;
+    padding: 0.6rem 0;
+    padding-bottom: 0;
+  }
+}
